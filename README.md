@@ -21,7 +21,8 @@ nginx demo to support HTTP routing for both websocket and rest api.
   
 * deploy in Docker Swarm mode
 
-  cd deployment 
+  cd deployment
+  
   docker deploy -c docker-compose.yml N  
   
 * check logs
