@@ -4,7 +4,7 @@ nginx docker applications
 
 ### docker-app
 #### nginx-hello
-Build
+Build  
           docker login
           docker build -t shengli/nginx-hello .
           docker push shengli/nginx-hello
