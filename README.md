@@ -15,3 +15,15 @@ Run
 
 ### nginx-websocket-and-rest-api
 nginx demo to support HTTP routing for both websocket and rest api.
+* build docker image
+
+  build.sh
+  
+* deploy in Docker Swarm mode
+
+  cd deployment 
+  docker deploy -c docker-compose.yml N  
+  
+* check logs
+  docker service logs -f N_rest-app
+
