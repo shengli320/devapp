@@ -4,9 +4,6 @@ const express = require('express');
 const fs = require('fs');
 const bodyParser = require('body-parser');
 
-// Constants
-const PORT = 8080;
-
 // App
 var app = express();
 app.use(bodyParser.json());
@@ -23,5 +20,4 @@ app.post('/', function (req, res) {
     return res.json({answer: 42});
 })
 
-app.listen(PORT);
-console.log('Running on http://localhost:' + PORT);
+module.exports = app;
