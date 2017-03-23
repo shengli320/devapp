@@ -1,0 +1,15 @@
+{
+	"name": "docker_restapi",
+	"version": "1.0.0",
+	"description": "A super simple example of how regular http and websocket work together",
+	"author": "Shengli Gao <shengli.gao@qq.com>",
+	"main": "http-server.js",
+	"scripts": {
+		"start": "node http-server.js"
+	},
+	"dependencies": {
+		"express": "^4.13.3",
+		"fs":"^0.0.1-security",
+		"body-parser":"*"
+	}
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>http and WebSocket example</title>
+</head>
+<body>
+<h2>NodeJS HTTP and WebSocket example</h2>
+<hr/>
+
+<h3>Socket message response:</h3>
+<pre id="response"></pre>
+<hr/>
+
+<h3>POST message response:</h3>
+<pre id="post-response"></pre>
+
+<script>
+    // Extremely simplified here, no error handling and anything
+    document.body.onload = function () {
+        'use strict';
+
+        // first the WebSocket request
+        function socketExample() {
+            console.log('Creating socket');
+        }
+
+        // then the simple POST request
+        function postExample() {
+            console.log('Creating regular POST message');
+            fetch('/', {
+                method: 'post',
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify({message: 'What is the meaning of post-life, the universe and everything?'})
+            })
+                .then(function (response) {
+                    console.log('POST response message: ', response);
+                    return response.json();
+                })
+                .then(function (data) {
+                    console.log('POST response data: ', data);
+                    document.getElementById('post-response').innerHTML = JSON.stringify(data, null, 2);
+                })
+                .catch(function (error) {
+                    console.log('Request failed', error);
+                })
+            ;
+        }
+
+        // Call them both
+        socketExample();
+        postExample();
+    }
+
+
+</script>
+
+</body>
+</html>
