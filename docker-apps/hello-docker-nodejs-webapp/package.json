@@ -1,0 +1,13 @@
+{
+	"name": "docker_restapi",
+	"version": "1.0.0",
+	"description": "nodejs restapi on docker",
+	"author": "Shengli Gao <shengli.gao@qq.com>",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"dependencies": {
+		"express": "^4.13.3"
+	}
+}
