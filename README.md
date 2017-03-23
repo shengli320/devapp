@@ -31,16 +31,14 @@
 
 #### Steps
   1. create a typical express app, except that we do not start the server with app.listen().
-     * file: http-http-server.js
-        a) GET  /: return index.html
-        b) POST /: handle JSON request from index.html, and return a response
-     
-     * file: index.html (html5)
-        a) Use Fetch to POST json data (JSON.stringify)
-        b) Parse response in JSON and display
-     
-     * quick test
-        a) server: npm install && npm start
+     * file: http-http-server.js  
+        a) GET  /: return index.html  
+        b) POST /: handle JSON request from index.html, and return a response  
+     * file: index.html (html5)  
+        a) Use Fetch to POST json data (JSON.stringify)  
+        b) Parse response in JSON and display  
+     * quick test  
+        a) server: npm install && npm start  
         b) browser: http://<ip>:8080
 
   2.  
