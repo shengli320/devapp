@@ -8,12 +8,12 @@
 <h2>NodeJS HTTP and WebSocket example</h2>
 <hr/>
 
-<h3>Socket message response:</h3>
-<pre id="response"></pre>
+<h3>WebSocket message response:</h3>
+<pre id="ws-response"></pre>
 <hr/>
 
-<h3>POST message response:</h3>
-<pre id="post-response"></pre>
+<h3>HTTP POST message response:</h3>
+<pre id="http-response"></pre>
 
 <script>
     // Extremely simplified here, no error handling and anything
@@ -21,12 +21,26 @@
         'use strict';
 
         // first the WebSocket request
-        function socketExample() {
-            console.log('Creating socket');
+        function wsExample() {
+            var wshostport = "10.220.209.132:8080";
+            var wsaddr = 'ws://' + wshostport + '/';
+            console.log('Creating websocket on ', wsaddr);
+            var wsocket = new WebSocket(wsaddr);
+            wsocket.onopen = function () {
+                console.log('websocket open');
+                wsocket.send(JSON.stringify({message: 'message from WebSocket'}));
+                console.log('websocket message sent');
+            }
+            wsocket.onmessage = function (message) {
+                console.log('websocket server message: ', message);
+                var data = JSON.parse(message.data);
+                console.log('websocket server message data: ', data);
+                document.getElementById('ws-response').innerHTML = JSON.stringify(data, null, 2);
+            }
         }
 
         // then the simple POST request
-        function postExample() {
+        function httpPostExample() {
             console.log('Creating regular POST message');
             fetch('/', {
                 method: 'post',
@@ -36,22 +50,22 @@
                 body: JSON.stringify({message: 'What is the meaning of post-life, the universe and everything?'})
             })
                 .then(function (response) {
-                    console.log('POST response message: ', response);
+                    console.log('HTTP POST response message: ', response);
                     return response.json();
                 })
                 .then(function (data) {
-                    console.log('POST response data: ', data);
-                    document.getElementById('post-response').innerHTML = JSON.stringify(data, null, 2);
+                    console.log('HTTP POST response data: ', data);
+                    document.getElementById('http-response').innerHTML = JSON.stringify(data, null, 2);
                 })
                 .catch(function (error) {
-                    console.log('Request failed', error);
+                    console.log('HTTP POST request failed', error);
                 })
             ;
         }
 
         // Call them both
-        socketExample();
-        postExample();
+        wsExample();
+        httpPostExample();
     }
 
 

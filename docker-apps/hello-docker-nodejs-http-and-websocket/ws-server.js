@@ -13,6 +13,10 @@ var wss = new wsServer({server: dualStackServer});
 dualStackServer.on('request', app);
 
 wss.on('connection', function connection(ws) {
+    ws.on('message', function incoming(message) {
+        console.log('received: ', message);
+        ws.send(JSON.stringify({answer: 32}));
+    });
 });
 
 dualStackServer.listen(PORT);

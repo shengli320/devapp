@@ -68,7 +68,7 @@
             
             dualStackServer.listen(PORT);
             console.log('http/ws server listening on port: ' + PORT);            
-          ```
+```
 
 #### Reference
 * [Express and WebSocket listening on the same port](http://stackoverflow.com/questions/34808925/express-and-websocket-listening-on-the-same-port)
