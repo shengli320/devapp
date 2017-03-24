@@ -74,6 +74,7 @@
 * [Express and WebSocket listening on the same port](http://stackoverflow.com/questions/34808925/express-and-websocket-listening-on-the-same-port)
 * [Using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
 * [Fetch: POST json data](http://stackoverflow.com/questions/29775797/fetch-post-json-data)
+* [WebSocket RFC6455](https://tools.ietf.org/html/rfc6455)
 
 ## nginx-docker
 nginx docker applications

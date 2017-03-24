@@ -22,8 +22,7 @@
 
         // first the WebSocket request
         function wsExample() {
-            var wshostport = "10.220.209.132:8080";
-            var wsaddr = 'ws://' + wshostport + '/';
+            var wsaddr = 'ws://' + window.location.host + '/';
             console.log('Creating websocket on ', wsaddr);
             var wsocket = new WebSocket(wsaddr);
             wsocket.onopen = function () {
