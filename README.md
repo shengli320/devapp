@@ -70,6 +70,25 @@
             console.log('http/ws server listening on port: ' + PORT);            
 ```
 
+  3. test
+    a) start node server: node install && node start  
+    b) open a browser, and input url: http://<ip>:8080  
+       Example page:   
+```html
+          NodeJS HTTP and WebSocket example
+          
+          WebSocket message response:
+          
+          {
+            "answer": 32
+          }
+          HTTP POST message response:
+          
+          {
+            "answer": 42
+          }
+```
+
 #### Reference
 * [Express and WebSocket listening on the same port](http://stackoverflow.com/questions/34808925/express-and-websocket-listening-on-the-same-port)
 * [Using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
