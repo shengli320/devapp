@@ -95,6 +95,25 @@
 * [Fetch: POST json data](http://stackoverflow.com/questions/29775797/fetch-post-json-data)
 * [WebSocket RFC6455](https://tools.ietf.org/html/rfc6455)
 
+### docker: docker-redis
+  * start in Docker Swarm mode
+```bash
+    # deploy
+    docker deploy -c docker-compose-swarm-mode.yml R
+    
+    # remove
+    docker service rm R_redis-app
+    
+    # check
+    ss -plnt | grep 6379
+        LISTEN     0      128         :::6379                    :::*             
+
+    # check inside
+    docker exec -it R_redis-app.1.r55w82vcl093v1qqtgvatdqcm /bin/bash
+        
+
+```
+
 ## nginx-docker
 nginx docker applications
 

@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  
+  redis-app:
+    image: redis
+    ports:
+      - 6379:6379
+    networks:
+      - redisdemo
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints: [node.role == manager ]
+
+networks:
+  redisdemo:        
