@@ -1,0 +1,23 @@
+{
+  "id": "redis",
+  "cpus": 0.1,
+  "mem": 32.0,
+  "instances": 1,
+    "acceptedResourceRoles": [
+    "slave_public"
+  ],
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "redis",
+      "network": "BRIDGE",
+      "portMappings": [{ 
+        "containerPort": 6379, 
+        "hostPort": 6379, 
+        "servicePort": 6379, 
+        "protocol": "tcp" 
+        }
+      ]
+    }
+  }
+}

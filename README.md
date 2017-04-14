@@ -96,7 +96,8 @@
 * [WebSocket RFC6455](https://tools.ietf.org/html/rfc6455)
 
 ### docker: docker-redis
-  * start in Docker Swarm mode
+  * Docker Swarm mode
+
 ```bash
     # deploy
     docker deploy -c docker-compose-swarm-mode.yml R
@@ -110,9 +111,32 @@
 
     # check inside
     docker exec -it R_redis-app.1.r55w82vcl093v1qqtgvatdqcm /bin/bash
-        
-
+        /data# redis-cli
+            127.0.0.1:6379> keys *
+                (empty list or set)
+            127.0.0.1:6379> set hello world
+                OK
+            127.0.0.1:6379> get hello
+                world
 ```
+
+  * DCOS
+      master      : 10.220.202.61
+      public-agent: 10.220.202.82
+      
+```bash
+    # deploy
+    curl -X POST http://10.220.202.61/marathon/v2/apps -d @marathon-redis.json -H "Content-type: application/json"
+
+    # test
+    redis-cli -h 10.220.202.82 -p 6379
+        10.220.202.82:6379> keys *
+            (empty list or set)
+        10.220.202.82:6379> set hello world
+            OK
+        10.220.202.82:6379> get hello
+            "world"
+```  
 
 ## nginx-docker
 nginx docker applications
