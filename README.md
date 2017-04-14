@@ -100,7 +100,7 @@
 
 ```bash
     # deploy
-    docker deploy -c docker-compose-swarm-mode.yml R
+    docker deploy -c swarm-mode-redis.yml R
     
     # remove
     docker service rm R_redis-app
@@ -137,6 +137,27 @@
         10.220.202.82:6379> get hello
             "world"
 ```  
+
+### docker: docker-postgres
+  * Docker Swarm mode
+
+```bash
+    # deploy
+    docker deploy -c swarm-mode-postgres.yml P
+    
+    # check
+    ss -plnt | grep 6379
+        LISTEN     0      128         :::6379                    :::*             
+
+    # check inside
+    docker exec -it P_postgres-app.1.whs8oambymm6uq5to3m2obrks /bin/bash
+        root@bd9fa35945ee:/# psql -U postgres
+            psql (9.6.2)
+            Type "help" for help.
+            
+            postgres=# select 1;
+```
+
 
 ## nginx-docker
 nginx docker applications
