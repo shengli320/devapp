@@ -1,5 +1,5 @@
 {
-  "id": "redis",
+  "id": "postgres",
   "cpus": 0.1,
   "mem": 32.0,
   "instances": 1,
@@ -9,12 +9,12 @@
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "redis",
+      "image": "postgres",
       "network": "BRIDGE",
       "portMappings": [{ 
-        "containerPort": 6379, 
-        "hostPort": 6379, 
-        "servicePort": 6379, 
+        "containerPort": 5432, 
+        "hostPort": 5432, 
+        "servicePort": 5432, 
         "protocol": "tcp" 
         }
       ]

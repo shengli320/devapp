@@ -149,7 +149,7 @@
     ss -plnt | grep 6379
         LISTEN     0      128         :::6379                    :::*             
 
-    # check inside
+    # test
     docker exec -it P_postgres-app.1.whs8oambymm6uq5to3m2obrks /bin/bash
         root@bd9fa35945ee:/# psql -U postgres
             psql (9.6.2)
@@ -158,6 +158,23 @@
             postgres=# select 1;
 ```
 
+  * DCOS
+      master      : 10.220.202.61
+      public-agent: 10.220.202.82
+      
+```bash
+    # deploy
+    curl -X POST http://10.220.202.61/marathon/v2/apps -d @marathon-postgres.json -H "Content-type: application/json"
+    curl -X DELETE http://10.220.202.61/marathon/v2/apps/postgres
+
+    # test
+    psql -h 10.220.202.82 -U postgres
+        root@bd9fa35945ee:/# psql -h 10.220.202.82 -U postgres
+            psql (9.6.2)
+            Type "help" for help.
+            
+            postgres=# select 1
+```
 
 ## nginx-docker
 nginx docker applications
