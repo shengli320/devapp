@@ -96,6 +96,22 @@
 * [WebSocket RFC6455](https://tools.ietf.org/html/rfc6455)
 
 ### docker: docker-redis
+  * basic docker command
+```bash
+    docker run --name redis -d redis
+    
+    docker exec -it redis /bin/bash
+        /data# redis-cli
+            127.0.0.1:6379> keys *
+                (empty list or set)
+            127.0.0.1:6379> set hello world
+                OK
+            127.0.0.1:6379> get hello
+                world
+            127.0.0.1:6379> flushall
+            127.0.0.1:6379> exit
+```
+
   * Docker Swarm mode
 
 ```bash
